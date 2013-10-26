@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Enumeration by Alaneor</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Enumeration</h1>
+          <h2>A simple Typedef Enum implementation for php</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/Alaneor/Enumeration/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/Alaneor/Enumeration/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/Alaneor/Enumeration" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="enumerations-for-php-" class="anchor" href="#enumerations-for-php-"><span class="octicon octicon-link"></span></a>Enumerations for php <a href="https://travis-ci.org/Alaneor/Enumeration"><img src="https://api.travis-ci.org/Alaneor/Enumeration.png" alt="Build Status"></a>
+</h1>
+
+<p>Every php programmer at some point wants to put some structure to all those constants defined in their code. Usually one would put those constants under a dedicated class, but that's it; no additional features, no real benefit, no nothing.</p>
+
+<h2>
+<a name="what-if-you-could-get-more" class="anchor" href="#what-if-you-could-get-more"><span class="octicon octicon-link"></span></a>What if you could get more?</h2>
+
+<p>This small library aims at providing additional features to your "Enumerations" - a set of static values that represents something meaningful to your code.</p>
+
+<h2>
+<a name="the-problem-with-constants" class="anchor" href="#the-problem-with-constants"><span class="octicon octicon-link"></span></a>The problem with constants</h2>
+
+<p>Let's say our program will work with animals - various different animals, and we would like each type of animal to have a distinct value ( which I completely made up in this example ). Here's what many programmers currently do:</p>
+
+<div class="highlight highlight-php"><pre><span class="nb">define</span><span class="p">(</span> <span class="s1">'MYAPP_ANIMAL_HORSE'</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span> <span class="s1">'MYAPP_ANIMAL_DOG'</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span> <span class="s1">'MYAPP_ANIMAL_CAT'</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
+<span class="c1">// ...</span>
+</pre></div>
+
+<p>While this certaily works, there is a better way of defining those.</p>
+
+<div class="highlight highlight-php"><pre><span class="k">namespace</span> <span class="nx">MyApp</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Animal</span>
+<span class="p">{</span>
+  <span class="k">const</span> <span class="no">Horse</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">const</span> <span class="no">Dog</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">const</span> <span class="no">Cat</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Defining the constants as a class has several benefits:</p>
+
+<ol>
+<li>You can use real namespacing, which can save you a few typing when using the class</li>
+<li>It feels more natural to use <code>Animal::Horse</code> than <code>MYAPP_ANIMAL_HORSE</code>
+</li>
+<li>Since it's a class it opens up new possibilities and ideas -&gt; that's where this library comes to use :)</li>
+</ol><h2>
+<a name="how-this-library-helps" class="anchor" href="#how-this-library-helps"><span class="octicon octicon-link"></span></a>How this library helps</h2>
+
+<p>The above example with a class introduces some issues but also opens up new possibilities.</p>
+
+<ol>
+<li>There's nothing preventing the programmer from instantiating the class</li>
+<li>What if you wanted to do it the opposite way? -&gt; you have a value and you want to know the constant's name that holds such value in the enumeration?</li>
+<li>What if you wanted to check if a constant is defined in the Enumeration?</li>
+</ol><p>Let's take a look at another example that demonstrates the use of <strong>Enumerations</strong> provided by this library.</p>
+
+<div class="highlight highlight-php"><pre><span class="k">namespace</span> <span class="nx">MyApp</span><span class="p">;</span>
+
+<span class="c1">// Let's extend our Enumeration class</span>
+<span class="k">class</span> <span class="nc">Animal</span> <span class="k">extends</span> <span class="nx">Enumeration\Enumeration</span>
+<span class="p">{</span>
+  <span class="k">const</span> <span class="no">Horse</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">const</span> <span class="no">Dog</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">const</span> <span class="no">Cat</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// So far looks the same, but watch now...</span>
+
+<span class="nv">$animal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animal</span><span class="p">;</span> <span class="c1">// Throws an exception</span>
+
+<span class="nx">Animal</span><span class="o">::</span><span class="na">isDefined</span><span class="p">(</span> <span class="s1">'Horse'</span> <span class="p">);</span> <span class="c1">// Returns (bool)true</span>
+<span class="nx">Animal</span><span class="o">::</span><span class="na">isDefined</span><span class="p">(</span> <span class="s1">'Cow'</span> <span class="p">);</span> <span class="c1">// Returns (bool)false</span>
+
+<span class="c1">// "Reverse resolution"</span>
+<span class="nv">$value</span> <span class="o">=</span> <span class="nx">Animal</span><span class="o">::</span><span class="na">Dog</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nx">Animal</span><span class="o">::</span><span class="na">getName</span><span class="p">(</span> <span class="nv">$value</span> <span class="p">);</span> <span class="c1">// prints (string)"Dog"</span>
+</pre></div>
+
+<p>As you can see, suddenly there's much more you can possibly do with a class as simple as enumeration can be. Learn more in the <a href="">API Docs</a> which also include code examples and full method description.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a name="via-composer" class="anchor" href="#via-composer"><span class="octicon octicon-link"></span></a>Via Composer:</h3>
+
+<p><code>composer require alaneor\enumerations:dev-master</code></p>
+
+<p>Composer's autoloading is supported so as long as you <code>require "vendor/autoload.php";</code> somewhere in your code you can simply start using it.</p>
+
+<h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p><a href="">API documentation</a> is available online - it includes all public methods you can use and also several code samples and use cases.</p>
+
+<h3>
+<a name="offline-documentation" class="anchor" href="#offline-documentation"><span class="octicon octicon-link"></span></a>Offline documentation</h3>
+
+<p>Sure! Just install the development dependencies and generate the docs.</p>
+
+<pre><code>composer require --dev alaneor\enumerations:dev-master
+php vendor/bin/phpdoc.php
+</code></pre>
+
+<p>Documentation is now available at <em>./docs/index.html</em>.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This software is licensed under the <strong>BSD (3-Clause) License</strong>. See the <a href="LICENSE">LICENSE</a> file for more information.</p>
+        </section>
+
+        <footer>
+          Enumeration is maintained by <a href="https://github.com/Alaneor">Alaneor</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
