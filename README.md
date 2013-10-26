@@ -69,7 +69,7 @@ $value = Animal::Dog;
 echo Animal::getName( $value ); // prints (string)"Dog"
 ```
 
-As you can see, suddenly there's much more you can possibly do with a class as simple as enumeration can be. Learn more in the [API Docs]() which also include code examples and full method description.
+As you can see, suddenly there's much more you can possibly do with a class as simple as enumeration can be. Learn more in the [API Docs](http://alaneor.github.io/Enumeration/docs) which also include code examples and full method description.
 
 ## Installation
 
@@ -81,7 +81,7 @@ Composer's autoloading is supported so as long as you `require "vendor/autoload.
 
 ## Documentation
 
-[API documentation]() is available online - it includes all public methods you can use and also several code samples and use cases.
+[API documentation](http://alaneor.github.io/Enumeration/docs) is available online - it includes all public methods you can use and also several code samples and use cases.
 
 ### Offline documentation
 
