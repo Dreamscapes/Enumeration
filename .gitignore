@@ -1,0 +1,14 @@
+# OSX-specific
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Project-specific
+docs
+vendor
+tests/_log
+
+# Allows to have local phpDoc settings independent of what's in the repo
+phpdoc.xml

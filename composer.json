@@ -1,0 +1,23 @@
+{
+  "name": "alaneor/enumeration",
+  "description": "A simple Typedef Enum implementation for php",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Robert Rossmann",
+      "email": "rr.rossmann@me.com",
+      "homepage": "https://github.com/Alaneor"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "require-dev": {
+    "codeception/codeception": "~1.7",
+    "phpdocumentor/phpdocumentor": "~2.1"
+  },
+  "autoload": {
+    "psr-0": { "Enumeration\\": "src" }
+  }
+}
