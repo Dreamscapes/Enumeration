@@ -1,6 +1,8 @@
 {
   "name": "alaneor/enumeration",
   "description": "A simple Typedef Enum implementation for php",
+  "homepage": "https://github.com/Alaneor/Enumeration",
+  "keywords": ["enumeration", "typedef", "enum", "constant", "static list license"],
   "license": "BSD-3-Clause",
   "authors": [
     {
