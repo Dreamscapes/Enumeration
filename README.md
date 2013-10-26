@@ -1,4 +1,4 @@
-# Enumerations for php
+# Enumerations for php [![Build Status](https://api.travis-ci.org/Alaneor/Enumeration.png)](https://travis-ci.org/Alaneor/Enumeration)
 
 Every php programmer at some point wants to put some structure to all those constants defined in their code. Usually one would put those constants under a dedicated class, but that's it; no additional features, no real benefit, no nothing.
 
