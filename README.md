@@ -4,7 +4,7 @@ Every php programmer at some point wants to put some structure to all those cons
 
 ## What if you could get more?
 
-This small library aims at providing additional features to your "Enumerations" - a set of static values that represents something meaningful to your code.
+This small library aims at providing additional features to your "Enumerations" - a set of static values that represent something meaningful to your code.
 
 ## The problem with constants
 
