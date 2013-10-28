@@ -46,7 +46,7 @@ class Enumeration
    *
    * <h3>Example</h3>
    * <code>
-   * class Animal extends Enumeration\Enumeration
+   * class Animal extends Dreamscapes\Enumeration
    * {
    *   const Horse = 0;
    *   const Dog = 1;
@@ -79,7 +79,7 @@ class Enumeration
    *
    * <h3>Example</h3>
    * <code>
-   * class Animal extends Enumeration\Enumeration
+   * class Animal extends Dreamscapes\Enumeration
    * {
    *   const Horse = 0;
    *   const Dog = 1;
@@ -103,7 +103,7 @@ class Enumeration
    *
    * <h3>Example</h3>
    * <code>
-   * class Animal extends Enumeration\Enumeration
+   * class Animal extends Dreamscapes\Enumeration
    * {
    *   const Horse = 0;
    *   const Dog = 1;
@@ -130,7 +130,7 @@ class Enumeration
    *
    * <h3>Example</h3>
    * <code>
-   * class Animal extends Enumeration\Enumeration
+   * class Animal extends Dreamscapes\Enumeration
    * {
    *   const Horse = 0;
    *   const Dog = 1;
@@ -156,7 +156,7 @@ class Enumeration
    *
    * <h3>Example</h3>
    * <code>
-   * class Animal extends Enumeration\Enumeration
+   * class Animal extends Dreamscapes\Enumeration
    * {
    *   const Horse = 0;
    *   const Dog = 1;
@@ -186,10 +186,10 @@ class Enumeration
    * <code>
    * namespace Fauna;
    *
-   * class Animal extends Enumeration\Enumeration {}
+   * class Animal extends Dreamscapes\Enumeration {}
    *
    * echo Animal::getType(); // Animal
-   * echo Enumeration\Enumeration::getType(); // Enumeration
+   * echo Dreamscapes\Enumeration::getType(); // Enumeration
    * </code>
    *
    * @return    string      The name of the Enumeration class, without namespace

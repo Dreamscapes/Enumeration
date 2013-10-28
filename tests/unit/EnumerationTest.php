@@ -2,14 +2,14 @@
 use Codeception\Util\Stub;
 
 // Prepare a test Enumeration
-class TestEnum extends Enumeration\Enumeration
+class TestEnum extends Dreamscapes\Enumeration
 {
   const TestMember = 0;
   const OtherMember = 1;
   const FalseMember = false;
 }
 
-class AnotherEnum extends Enumeration\Enumeration
+class AnotherEnum extends Dreamscapes\Enumeration
 {
   const DifferentMember = 'some value';
 }

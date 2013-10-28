@@ -50,7 +50,7 @@ Let's take a look at another example that demonstrates the use of **Enumerations
 namespace MyApp;
 
 // Let's extend our Enumeration class
-class Animal extends Enumeration\Enumeration
+class Animal extends \Dreamscapes\Enumeration
 {
   const Horse = 0;
   const Dog = 1;

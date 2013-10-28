@@ -20,6 +20,6 @@
     "phpdocumentor/phpdocumentor": "~2.1"
   },
   "autoload": {
-    "psr-0": { "Enumeration\\": "src" }
+    "psr-0": { "Dreamscapes\\": "src" }
   }
 }
