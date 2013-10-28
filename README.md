@@ -1,4 +1,4 @@
-# Enumerations for php [![Build Status](https://api.travis-ci.org/Alaneor/Enumeration.png)](https://travis-ci.org/Alaneor/Enumeration)
+# Enumerations for php [![Build Status](https://api.travis-ci.org/Dreamscapes/Enumeration.png)](https://travis-ci.org/Dreamscapes/Enumeration)
 
 Every php programmer at some point wants to put some structure to all those constants defined in their code. Usually one would put those constants under a dedicated class, but that's it; no additional features, no real benefit, no nothing.
 
@@ -69,19 +69,19 @@ $value = Animal::Dog;
 echo Animal::getName( $value ); // prints (string)"Dog"
 ```
 
-As you can see, suddenly there's much more you can possibly do with a class as simple as enumeration can be. Learn more in the [API Docs](http://alaneor.github.io/Enumeration/docs) which also include code examples and full method description.
+As you can see, suddenly there's much more you can possibly do with a class as simple as enumeration can be. Learn more in the [API Docs](http://dreamscapes.github.io/Enumeration/docs) which also include code examples and full method description.
 
 ## Installation
 
 ### Via Composer:
 
-`composer require alaneor\enumerations:dev-master`
+`composer require dreamscapes\enumerations:dev-master`
 
 Composer's autoloading is supported so as long as you `require "vendor/autoload.php";` somewhere in your code you can simply start using it.
 
 ## Documentation
 
-[API documentation](http://alaneor.github.io/Enumeration/docs) is available online - it includes all public methods you can use and also several code samples and use cases.
+[API documentation](http://dreamscapes.github.io/Enumeration/docs) is available online - it includes all public methods you can use and also several code samples and use cases.
 
 ### Offline documentation
 
