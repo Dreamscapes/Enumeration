@@ -13,7 +13,7 @@
  */
 
 
-namespace Enumeration;
+namespace Dreamscapes;
 
 /**
  * The Enumeration class
