@@ -8,12 +8,12 @@
  *
  * @copyright   2013 Robert Rossmann
  * @author      Robert Rossmann <rr.rossmann@me.com>
- * @link        https://github.com/Alaneor/Enumeration
+ * @link        https://github.com/Dreamscapes/Enumeration
  * @license     http://choosealicense.com/licenses/bsd-3-clause   BSD (3-Clause) License
  */
 
 
-namespace Enumeration;
+namespace Dreamscapes;
 
 /**
  * The Enumeration class
