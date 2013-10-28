@@ -1,7 +1,7 @@
 {
-  "name": "alaneor/enumeration",
+  "name": "dreamscapes/enumeration",
   "description": "A simple Typedef Enum implementation for php",
-  "homepage": "https://github.com/Alaneor/Enumeration",
+  "homepage": "https://github.com/Dreamscapes/Enumeration",
   "keywords": ["enumeration", "typedef", "enum", "constant", "static list license"],
   "license": "BSD-3-Clause",
   "authors": [
