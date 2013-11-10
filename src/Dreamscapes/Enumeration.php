@@ -19,7 +19,7 @@ namespace Dreamscapes;
  * The Enumeration class
  *
  * All enumerations should extend this class. Enumerated members
- * should be defined and class constants.
+ * should be defined as class constants.
  *
  * @package     Enumeration
  */

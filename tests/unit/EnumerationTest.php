@@ -4,7 +4,7 @@ use Codeception\Util\Stub;
 // Prepare a test Enumeration
 class TestEnum extends Dreamscapes\Enumeration
 {
-  const TestMember = 0;
+  const TestMember  = 0;
   const OtherMember = 1;
   const FalseMember = false;
 }
@@ -30,7 +30,7 @@ class EnumerationTest extends \Codeception\TestCase\Test
     $enum = new TestEnum;
   }
 
-  public function testEachEnumerationsMustBeIsolated()
+  public function testEachEnumerationMustBeIsolated()
   {
     $this->assertSame( 'some value', AnotherEnum::getValue( 'DifferentMember') );
     $this->assertSame( 1, TestEnum::getValue( 'OtherMember' ) );
