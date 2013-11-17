@@ -23,19 +23,13 @@ class EnumerationTest extends \Codeception\TestCase\Test
   protected function _after() {}
 
 
-  public function testEnumerationsCannotBeInstantiated()
-  {
-    $this->setExpectedException( 'Exception' );
-
-    $enum = new TestEnum;
-  }
-
   public function testEachEnumerationMustBeIsolated()
   {
     $this->assertSame( 'some value', AnotherEnum::getValue( 'DifferentMember') );
     $this->assertSame( 1, TestEnum::getValue( 'OtherMember' ) );
 
-    $this->assertNull( TestEnum::getValue( 'DifferentMember' ) );
+    $this->setExpectedException( 'ErrorException' );
+    TestEnum::getValue( 'DifferentMember' );
   }
 
   public function testEnumerationCanTranslateValueToMemberName()

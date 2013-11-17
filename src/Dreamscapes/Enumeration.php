@@ -95,7 +95,17 @@ class Enumeration
    */
   public static function getValue( $member )
   {
-    return static::isDefined( $member ) ? static::toArray()[$member] : null;
+    if ( ! static::isDefined( $member ) )
+    {
+      $trace = debug_backtrace();
+      trigger_error(
+        'Undefined class constant ' . $member .
+        ' in ' . $trace[0]['file'] .
+        ' on line ' . $trace[0]['line'],
+        E_USER_ERROR );
+    }
+
+    return static::toArray()[$member];
   }
 
   /**
