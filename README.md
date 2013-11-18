@@ -43,6 +43,7 @@ The above example with a class introduces some issues but also opens up new poss
 1. There's nothing preventing the programmer from instantiating the class
 2. What if you wanted to do it the opposite way? -> you have a value and you want to know the constant's name that holds such value in the enumeration?
 3. What if you wanted to check if a constant is defined in the Enumeration?
+4. What if you wanted to type-hint an enumerated value in a function/method's parameter list?
 
 Let's take a look at another example that demonstrates the use of **Enumerations** provided by this library.
 
@@ -59,7 +60,7 @@ class Animal extends \Dreamscapes\Enumeration
 
 // So far looks the same, but watch now...
 
-$animal = new Animal; // Throws an exception
+$animal = new Animal; // Raises fatal error (private constructor)
 
 Animal::isDefined( 'Horse' ); // Returns (bool)true
 Animal::isDefined( 'Cow' ); // Returns (bool)false
@@ -67,6 +68,18 @@ Animal::isDefined( 'Cow' ); // Returns (bool)false
 // "Reverse resolution"
 $value = Animal::Dog;
 echo Animal::getName( $value ); // prints (string)"Dog"
+
+// Type-hinting
+function doSomething( Animal $animal )
+{
+  // $animal is now an instance of the Animal class
+  // that can be easily represented as string
+  echo $animal;
+}
+doSomething( Animal::Horse() ); // prints (string)"Horse"
+
+// To get the actual value, simply pass the object to Enumeration::getValue() method
+$value = Animal::getValue( $animal );
 ```
 
 As you can see, suddenly there's much more you can possibly do with a class as simple as enumeration can be. Learn more in the [API Docs](http://dreamscapes.github.io/Enumeration/docs) which also include code examples and full method description.
