@@ -223,6 +223,16 @@ class Enumeration
   }
 
   /**
+   * Get the value of the enumerated member represented by this instance
+   *
+   * @return    mixed         Value of the enumerated member
+   */
+  final public function value()
+  {
+    return $this->value;
+  }
+
+  /**
    * Allow enumeration members to be typecast to strings
    *
    * @return    string      The value of the enumeration member in a string representation

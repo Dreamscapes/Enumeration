@@ -78,7 +78,9 @@ function doSomething( Animal $animal )
 }
 doSomething( Animal::Horse() ); // prints (string)"Horse"
 
-// To get the actual value, simply pass the object to Enumeration::getValue() method
+// To get the actual value
+$value = $animal->value();
+// Or, use the Enumeration::getValue() class method
 $value = Animal::getValue( $animal );
 ```
 

@@ -128,4 +128,10 @@ class EnumerationTest extends \Codeception\TestCase\Test
 
     $this->assertSame( true, TestEnum::isDefined( $instance ) );
   }
+
+  public function testInstancesHaveValueMethod()
+  {
+    $instance = TestEnum::TestMember();
+    $this->assertSame( TestEnum::TestMember, $instance->value() );
+  }
 }
