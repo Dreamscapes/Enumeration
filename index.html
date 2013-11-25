@@ -32,8 +32,7 @@
 
         <section id="main_content">
           <h1>
-<a name="enumerations-for-php-" class="anchor" href="#enumerations-for-php-"><span class="octicon octicon-link"></span></a>Enumerations for php <a href="https://travis-ci.org/Dreamscapes/Enumeration"><img src="https://api.travis-ci.org/Dreamscapes/Enumeration.png" alt="Build Status"></a>
-</h1>
+<a name="enumerations-for-php" class="anchor" href="#enumerations-for-php"><span class="octicon octicon-link"></span></a>Enumerations for php</h1>
 
 <p>Every php programmer at some point wants to put some structure to all those constants defined in their code. Usually one would put those constants under a dedicated class, but that's it; no additional features, no real benefit, no nothing.</p>
 
@@ -81,12 +80,13 @@
 <li>There's nothing preventing the programmer from instantiating the class</li>
 <li>What if you wanted to do it the opposite way? -&gt; you have a value and you want to know the constant's name that holds such value in the enumeration?</li>
 <li>What if you wanted to check if a constant is defined in the Enumeration?</li>
+<li>What if you wanted to type-hint an enumerated value in a function/method's parameter list?</li>
 </ol><p>Let's take a look at another example that demonstrates the use of <strong>Enumerations</strong> provided by this library.</p>
 
 <div class="highlight highlight-php"><pre><span class="k">namespace</span> <span class="nx">MyApp</span><span class="p">;</span>
 
 <span class="c1">// Let's extend our Enumeration class</span>
-<span class="k">class</span> <span class="nc">Animal</span> <span class="k">extends</span> <span class="nx">Enumeration\Enumeration</span>
+<span class="k">class</span> <span class="nc">Animal</span> <span class="k">extends</span> <span class="nx">\Dreamscapes\Enumeration</span>
 <span class="p">{</span>
   <span class="k">const</span> <span class="no">Horse</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">const</span> <span class="no">Dog</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -95,7 +95,7 @@
 
 <span class="c1">// So far looks the same, but watch now...</span>
 
-<span class="nv">$animal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animal</span><span class="p">;</span> <span class="c1">// Throws an exception</span>
+<span class="nv">$animal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animal</span><span class="p">;</span> <span class="c1">// Raises fatal error (private constructor)</span>
 
 <span class="nx">Animal</span><span class="o">::</span><span class="na">isDefined</span><span class="p">(</span> <span class="s1">'Horse'</span> <span class="p">);</span> <span class="c1">// Returns (bool)true</span>
 <span class="nx">Animal</span><span class="o">::</span><span class="na">isDefined</span><span class="p">(</span> <span class="s1">'Cow'</span> <span class="p">);</span> <span class="c1">// Returns (bool)false</span>
@@ -103,6 +103,20 @@
 <span class="c1">// "Reverse resolution"</span>
 <span class="nv">$value</span> <span class="o">=</span> <span class="nx">Animal</span><span class="o">::</span><span class="na">Dog</span><span class="p">;</span>
 <span class="k">echo</span> <span class="nx">Animal</span><span class="o">::</span><span class="na">getName</span><span class="p">(</span> <span class="nv">$value</span> <span class="p">);</span> <span class="c1">// prints (string)"Dog"</span>
+
+<span class="c1">// Type-hinting</span>
+<span class="k">function</span> <span class="nf">doSomething</span><span class="p">(</span> <span class="nx">Animal</span> <span class="nv">$animal</span> <span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// $animal is now an instance of the Animal class</span>
+  <span class="c1">// that can be easily represented as string</span>
+  <span class="k">echo</span> <span class="nv">$animal</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">doSomething</span><span class="p">(</span> <span class="nx">Animal</span><span class="o">::</span><span class="na">Horse</span><span class="p">()</span> <span class="p">);</span> <span class="c1">// prints (string)"Horse"</span>
+
+<span class="c1">// To get the actual value</span>
+<span class="nv">$value</span> <span class="o">=</span> <span class="nv">$animal</span><span class="o">-&gt;</span><span class="na">value</span><span class="p">();</span>
+<span class="c1">// Or, use the Enumeration::getValue() class method</span>
+<span class="nv">$value</span> <span class="o">=</span> <span class="nx">Animal</span><span class="o">::</span><span class="na">getValue</span><span class="p">(</span> <span class="nv">$animal</span> <span class="p">);</span>
 </pre></div>
 
 <p>As you can see, suddenly there's much more you can possibly do with a class as simple as enumeration can be. Learn more in the <a href="http://dreamscapes.github.io/Enumeration/docs">API Docs</a> which also include code examples and full method description.</p>
