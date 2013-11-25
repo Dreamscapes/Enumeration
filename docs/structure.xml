@@ -1,41 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="Enumerations for php" version="2.1.0&#10;">
   <partials/>
-  <file path="Enumeration.php" generated-path="Enumeration.html" hash="a102ea413321e15be5c1b4de32ceb4dd" package="Default">
+  <file path="Enumeration.php" generated-path="Enumeration.html" hash="d86de4101334739e534ea7d0073159a1" package="Default">
     <docblock line="0">
       <description>Enumerations</description>
       <long-description>Licensed under the BSD (3-Clause) license
 For full copyright and license information, please see the LICENSE file</long-description>
-      <tag name="copyright" line="0" description="2012-2013 Robert Rossmann"/>
+      <tag name="copyright" line="0" description="2013 Robert Rossmann"/>
       <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
-      <tag name="link" line="0" description="https://github.com/Alaneor/Enumeration" link="https://github.com/Alaneor/Enumeration"/>
+      <tag name="link" line="0" description="https://github.com/Dreamscapes/Enumeration" link="https://github.com/Dreamscapes/Enumeration"/>
       <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
     </docblock>
-    <class final="false" abstract="false" namespace="Enumeration" line="26" package="Enumeration">
+    <class final="false" abstract="false" namespace="Dreamscapes" line="26" package="Enumeration">
       <extends/>
       <name>Enumeration</name>
-      <full_name>\Enumeration\Enumeration</full_name>
+      <full_name>\Dreamscapes\Enumeration</full_name>
       <docblock line="26">
         <description>The Enumeration class</description>
         <long-description>All enumerations should extend this class. Enumerated members
-should be defined and class constants.</long-description>
+should be defined as class constants.</long-description>
         <tag name="package" line="26" description="Enumeration"/>
       </docblock>
-      <method final="true" abstract="false" static="false" visibility="public" namespace="Enumeration" line="34" package="Enumeration">
-        <name>__construct</name>
-        <full_name>\Enumeration\Enumeration::__construct()</full_name>
-        <docblock line="34">
-          <description>Instances are not allowed</description>
+      <property static="true" visibility="private" line="29" namespace="Dreamscapes" package="Enumeration">
+        <name>$instances</name>
+        <default>array()</default>
+        <docblock line="29">
+          <description></description>
           <long-description></long-description>
-          <tag name="throws" line="34" description="" type="\Exception">
-            <type link="Exception.html">\Exception</type>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" line="32" namespace="Dreamscapes" package="Enumeration">
+        <name>$value</name>
+        <default></default>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="true" abstract="false" static="false" visibility="private" namespace="Dreamscapes" line="41" package="Enumeration">
+        <name>__construct</name>
+        <full_name>\Dreamscapes\Enumeration::__construct()</full_name>
+        <docblock line="41">
+          <description>Instances are not allowed to be created by users</description>
+          <long-description></long-description>
+          <tag name="param" line="41" description="&lt;p&gt;The enumerated member's name&lt;/p&gt;&#10;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="41" description="&lt;p&gt;The enumerated member's value&lt;/p&gt;&#10;" type="mixed" variable="$value">
+            <type>mixed</type>
           </tag>
         </docblock>
+        <argument line="0">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Enumeration" line="66" package="Enumeration">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes" line="74" package="Enumeration">
         <name>getName</name>
-        <full_name>\Enumeration\Enumeration::getName()</full_name>
-        <docblock line="66">
+        <full_name>\Dreamscapes\Enumeration::getName()</full_name>
+        <docblock line="74">
           <description>Get the name of the member that holds given value</description>
           <long-description>&lt;p class="alert"&gt;This method is type-sensitive - see the example below.&lt;/p&gt;
 &lt;h3&gt;Use case&lt;/h3&gt;
@@ -44,7 +73,7 @@ to know the name of the enumeration member that holds this value.
 
 &lt;h3&gt;Example&lt;/h3&gt;
 &lt;code&gt;
-class Animal extends Enumeration\Enumeration
+class Animal extends Dreamscapes\Enumeration
 {
   const Horse = 0;
   const Dog = 1;
@@ -53,10 +82,10 @@ class Animal extends Enumeration\Enumeration
 echo Animal::getName( 0 ); // Prints 'Horse'
 echo Animal::getName( '0' ); // Returns null, method is type-sensitive
 &lt;/code&gt;</long-description>
-          <tag name="param" line="66" description="&lt;p&gt;The member's expected value. &lt;b&gt;The&#10;                                  value must be of the same type as defined&#10;                                  in the Enumeration.&lt;/b&gt;&lt;/p&gt;&#10;" type="string" variable="$value">
+          <tag name="param" line="74" description="&lt;p&gt;The member's expected value. &lt;b&gt;The&#10;                                  value must be of the same type as defined&#10;                                  in the Enumeration.&lt;/b&gt;&lt;/p&gt;&#10;" type="string" variable="$value">
             <type>string</type>
           </tag>
-          <tag name="return" line="66" description="The name of the member that holds this value, null&#10;                       if no such member exists" type="string">
+          <tag name="return" line="74" description="The name of the member that holds this value, null&#10;                       if no such member exists" type="string">
             <type>string</type>
           </tag>
         </docblock>
@@ -66,10 +95,10 @@ echo Animal::getName( '0' ); // Returns null, method is type-sensitive
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Enumeration" line="96" package="Enumeration">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes" line="104" package="Enumeration">
         <name>getValue</name>
-        <full_name>\Enumeration\Enumeration::getValue()</full_name>
-        <docblock line="96">
+        <full_name>\Dreamscapes\Enumeration::getValue()</full_name>
+        <docblock line="104">
           <description>Get the value of a given member's name</description>
           <long-description>&lt;h3&gt;Use case&lt;/h3&gt;
 You have a string representation of the Enumeration member and you would
@@ -77,7 +106,7 @@ like to know the value that member holds.
 
 &lt;h3&gt;Example&lt;/h3&gt;
 &lt;code&gt;
-class Animal extends Enumeration\Enumeration
+class Animal extends Dreamscapes\Enumeration
 {
   const Horse = 0;
   const Dog = 1;
@@ -85,27 +114,28 @@ class Animal extends Enumeration\Enumeration
 
 echo Animal::getValue( 'Dog' ); // Prints an integer, 1
 &lt;/code&gt;</long-description>
-          <tag name="param" line="96" description="&lt;p&gt;The member's expected name&lt;/p&gt;&#10;" type="string" variable="$member">
+          <tag name="param" line="104" description="&lt;p&gt;The member's expected name&lt;/p&gt;&#10;" type="string|\Dreamscapes\Enumeration" variable="$member">
             <type>string</type>
+            <type link="Enumeration.html">\Dreamscapes\Enumeration</type>
           </tag>
-          <tag name="return" line="96" description="The value of the member, null&#10;                       if no such member exists" type="mixed">
-            <type>mixed</type>
+          <tag name="return" line="104" description="The value of the member" type="bool">
+            <type>bool</type>
           </tag>
         </docblock>
         <argument line="0">
           <name>$member</name>
           <default></default>
-          <type>string</type>
+          <type>string|\Dreamscapes\Enumeration</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Enumeration" line="120" package="Enumeration">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes" line="132" package="Enumeration">
         <name>isDefined</name>
-        <full_name>\Enumeration\Enumeration::isDefined()</full_name>
-        <docblock line="120">
+        <full_name>\Dreamscapes\Enumeration::isDefined()</full_name>
+        <docblock line="132">
           <description>Does a member with this name exist in the enumeration?</description>
           <long-description>&lt;h3&gt;Example&lt;/h3&gt;
 &lt;code&gt;
-class Animal extends Enumeration\Enumeration
+class Animal extends Dreamscapes\Enumeration
 {
   const Horse = 0;
   const Dog = 1;
@@ -114,10 +144,10 @@ class Animal extends Enumeration\Enumeration
 echo Animal::isDefined( 'Dog' ); // Prints an integer, 1 (bool true)
 echo Animal::isDefined( 'Cat' ); // Prints nothing (bool false)
 &lt;/code&gt;</long-description>
-          <tag name="param" line="120" description="&lt;p&gt;The member's expected name&lt;/p&gt;&#10;" type="string" variable="$member">
+          <tag name="param" line="132" description="&lt;p&gt;The member's expected name&lt;/p&gt;&#10;" type="string" variable="$member">
             <type>string</type>
           </tag>
-          <tag name="return" line="120" description="&lt;b&gt;true&lt;/b&gt; if such member is defined, &lt;b&gt;false&lt;/b&gt; otherwise" type="bool">
+          <tag name="return" line="132" description="&lt;b&gt;true&lt;/b&gt; if such member is defined, &lt;b&gt;false&lt;/b&gt; otherwise" type="bool">
             <type>bool</type>
           </tag>
         </docblock>
@@ -127,17 +157,17 @@ echo Animal::isDefined( 'Cat' ); // Prints nothing (bool false)
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Enumeration" line="149" package="Enumeration">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes" line="161" package="Enumeration">
         <name>allMembers</name>
-        <full_name>\Enumeration\Enumeration::allMembers()</full_name>
-        <docblock line="149">
+        <full_name>\Dreamscapes\Enumeration::allMembers()</full_name>
+        <docblock line="161">
           <description>Get all members defined in this Enumeration</description>
           <long-description>&lt;p class="alert"&gt;The returned array's order is determined by the order
 in which the constants are defined in the class.&lt;/p&gt;
 
 &lt;h3&gt;Example&lt;/h3&gt;
 &lt;code&gt;
-class Animal extends Enumeration\Enumeration
+class Animal extends Dreamscapes\Enumeration
 {
   const Horse = 0;
   const Dog = 1;
@@ -150,19 +180,19 @@ print_r( Animal::allMembers() );
 //   1 =&gt; 'Dog'
 // )
 &lt;/code&gt;</long-description>
-          <tag name="return" line="149" description="An ordered list of all Enumeration members" type="array">
+          <tag name="return" line="161" description="An ordered list of all Enumeration members" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Enumeration" line="175" package="Enumeration">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes" line="187" package="Enumeration">
         <name>toArray</name>
-        <full_name>\Enumeration\Enumeration::toArray()</full_name>
-        <docblock line="175">
+        <full_name>\Dreamscapes\Enumeration::toArray()</full_name>
+        <docblock line="187">
           <description>Convert the Enumeration into an array</description>
           <long-description>&lt;h3&gt;Example&lt;/h3&gt;
 &lt;code&gt;
-class Animal extends Enumeration\Enumeration
+class Animal extends Dreamscapes\Enumeration
 {
   const Horse = 0;
   const Dog = 1;
@@ -175,35 +205,100 @@ print_r( Animal::allMembers() );
 //   'Dog' =&gt; 1
 // )
 &lt;/code&gt;</long-description>
-          <tag name="return" line="175" description="" type="array">
+          <tag name="return" line="187" description="" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Enumeration" line="197" package="Enumeration">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes" line="209" package="Enumeration">
         <name>getType</name>
-        <full_name>\Enumeration\Enumeration::getType()</full_name>
-        <docblock line="197">
+        <full_name>\Dreamscapes\Enumeration::getType()</full_name>
+        <docblock line="209">
           <description>Get the string representation of the Enumeration, without namespace</description>
           <long-description>&lt;h3&gt;Example&lt;/h3&gt;
 &lt;code&gt;
 namespace Fauna;
 
-class Animal extends Enumeration\Enumeration {}
+class Animal extends Dreamscapes\Enumeration {}
 
 echo Animal::getType(); // Animal
-echo Enumeration\Enumeration::getType(); // Enumeration
+echo Dreamscapes\Enumeration::getType(); // Enumeration
 &lt;/code&gt;</long-description>
-          <tag name="return" line="197" description="The name of the Enumeration class, without namespace" type="string">
+          <tag name="return" line="209" description="The name of the Enumeration class, without namespace" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
+      <method final="true" abstract="false" static="false" visibility="public" namespace="Dreamscapes" line="233" package="Enumeration">
+        <name>value</name>
+        <full_name>\Dreamscapes\Enumeration::value()</full_name>
+        <docblock line="233">
+          <description>Get the value of the enumerated member represented by this instance</description>
+          <long-description></long-description>
+          <tag name="return" line="233" description="Value of the enumerated member" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes" line="243" package="Enumeration">
+        <name>__toString</name>
+        <full_name>\Dreamscapes\Enumeration::__toString()</full_name>
+        <docblock line="243">
+          <description>Allow enumeration members to be typecast to strings</description>
+          <long-description></long-description>
+          <tag name="return" line="243" description="The value of the enumeration member in a string representation" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="true" abstract="false" static="true" visibility="private" namespace="Dreamscapes" line="256" package="Enumeration">
+        <name>getMemberInstance</name>
+        <full_name>\Dreamscapes\Enumeration::getMemberInstance()</full_name>
+        <docblock line="256">
+          <description>Factory for enumeration members' instance representations</description>
+          <long-description></long-description>
+          <tag name="param" line="256" description="&lt;p&gt;The class for which the instance should be obtained/generated&lt;/p&gt;&#10;" type="string" variable="$enumeration">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="256" description="&lt;p&gt;The enumerated member's name to retrieve&lt;/p&gt;&#10;" type="string" variable="$member">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="256" description="An instance of the Enumeration subclass, representing the given member's value" type="\Dreamscapes\Enumeration">
+            <type link="Enumeration.html">\Dreamscapes\Enumeration</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$enumeration</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0">
+          <name>$member</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="true" abstract="false" static="true" visibility="private" namespace="Dreamscapes" line="272" package="Enumeration">
+        <name>triggerUndefinedConstantError</name>
+        <full_name>\Dreamscapes\Enumeration::triggerUndefinedConstantError()</full_name>
+        <docblock line="272">
+          <description>Trigger an error that php triggers when attempting to access undefined class constant</description>
+          <long-description></long-description>
+          <tag name="param" line="272" description="&lt;p&gt;The name of the constant being accessed&lt;/p&gt;" type="string" variable="$const">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0">
+          <name>$const</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
     </class>
-    <source>eJzdWN9v20YMfvdfQQQFohR2nDRviZ02S9KtQFsMSTZgWAbjLNOWEOlOuDvVCYL+7+PxTr/s2m4eNqzTgy2fSB758SOP8uhtkRS93vD16x68hmtZ5qiFTZU09NstfUxjlAZnUMoZarAJwk+3VxCdDC4zURo8gMxLOOH3SsO8zDKIVfGk00ViQchZJQGpnCuds/k+FBkKWjOIbPTjh8vrz7fXME8zDFu/a6wAvDk6fjOgjxO4UVPUlr6MyYWULClKm9DefK08h5HWhzr8eJfjYazyc1bKUvkA4UqsLczpcLhIbVJOnczwIhMSlR62QAlqPppKjbTiRCmDIjxh7XBvhlMzG5wMYgaLNFbA+1iDN+z1elLkaAoRYzsTZ3V67pLOAyCjpsrTBaGOrfSBSVSZzQAfLVIKbJIaL39Ym6Ck5pgTWM5GJT9FmOE8lfTQpY5VKJ3SWCGtOaxSQ04+iIUHoQvQsOd12qvPvR4ABwGk/IGNxWhAaASpiCRZppY448de5p1NtFoagPvrxxgLbxucdSCKSJFBUU4JY6KbjBmMyYS91GVsowOSenbywGZA4rJlKIK9P1QJMfGB9k59aCnhQRG33d6DgzMy8rXj/M9oma8uVaDmfO9RpFthIVHZzMAi/YISvoisxFZQo8LjOd4TGVF07/zOZSVH4u4M6M4+FTgwxIfUkj4M6uLAR5FTvVByCKfD0bA4DwaTk/PfiFYxVdJoSD/8sosuEWRBeBe8Z7RBldlUulBbdOFcP5HakkmQpQ/eb7AKHiQhuBpyW3c9fGYbb33YDp8cvPaRtJwdxWqG4d4z50KmOSXYM7dDpPsO1ZzGs/8CT1H4RWmCYwxHZ931K7Wg1eOw+rXlFFLthh1PTxdoP1OQERxR6mE4hF91SqyHfba7v01j/2g/6NygLTUVoKRG2N+Y3RD8sIk+EL8QWuRcV0TmVC58f3rlE+muu5px+4ZAKjB2lezRhtGUSIVV8LsubzQvCaFpnVrj0uycBVEz5nsNErFst0kRW6ed+DTDsxrf3c6SajjVZ2i3upTOqa+AKeOksoSPqbGm7iGhe1Dp23YTqdMZ8G4ayasHfCIKCa3F04R6vY6TSqofzJyeWnXhnkcHfaBGhI4QjhG3LA6lceG6qGNLvMwp06khIrP9Cha/z3gMc5ERld9yrHDK65u7kfeWsBOh9dQEcaCu1OD2jhGyorHQSGy1vsZDWq7Xy77TObw11z46naPVhYIW5/SHaw6/uzio1kljv9shqJ3SNy5Q9+H4pbUdMKnqYL24V5LYqqE8faTnTQ3VRGiK6J8tlwBJFUNTMMHHqjRSc+VbSUuW2L1WOX+Gp38R553f65y/Um5yqBxd0sDmewO3D/a7akOtQ+rtD0W1Fli7uAbRVKmM283BDkuXwq5YovkncTT0NrjjHPyL5OVdw0UHl4vBnRaOjm0uNoNL34mxmyxH3qNepgZ38fRb5Fslqu/s1GUnnvu16Dfa+6bBkObYaqRuz1pMz1XKbBwJMXjkJnC3HWGp9KzCwaLO2e70iTnOj7wt2mmZpHHC6/XIzkN2xxkMLwL1HPkfLovCEXWio5rQBPEnj3CVBpIiRnNm6l9RfQc0y43PuxMcLx/zsquuenEz9xvOckqYsRfSg49uXqYg3OlL+V8/Ine20XZMG2lJhPwuHl4q+cW9/64e14Sjcq1D1ED9v9MeMu6yfNRe5n5Ki8cvT/uuPNZ5aaZGdwRdMn5j/xZ6g/MMWZyXI3eGTmIKD2cTBtrH16ZAY2RwTtKXVWVHW15Pv3eK6/MBqkoL9X8PL+JG84/Fe1FKcdZSfglt4Hnb2HVHLyORP7j8aktsg8FVvTWKbs32tjeTtT9gNkG4fW7yvjVE4Reu8TfY0OUCgRi5ozUj5yPYu7/f6wfduhl87f0NRYvjxQ==</source>
+    <source>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</source>
   </file>
   <package name="Default" full_name="Default"/>
   <package name="Enumeration" full_name="Enumeration"/>
-  <namespace name="Enumeration" full_name="Enumeration"/>
+  <namespace name="Dreamscapes" full_name="Dreamscapes"/>
   <deprecated count="0"/>
 </project>
