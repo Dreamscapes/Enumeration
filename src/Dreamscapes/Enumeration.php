@@ -19,21 +19,26 @@ namespace Dreamscapes;
  * The Enumeration class
  *
  * All enumerations should extend this class. Enumerated members
- * should be defined and class constants.
+ * should be defined as class constants.
  *
  * @package     Enumeration
  */
 class Enumeration
 {
 
+  private static $instances = [];   // Instances of enumeration members are cached here
+
+
+  private $value;                   // Each instance of an Enumeration holds the member's value here
+
+
   /**
-   * Instances are not allowed
-   *
-   * @throws  \Exception
+   * Instances are not allowed to be created by users
    */
-  final public function __construct()
+  final private function __construct( $name, $value )
   {
-    throw new \Exception( "You cannot instantiate an Enumeration" );
+    $this->name   = $name;
+    $this->value  = $value;
   }
 
   /**
@@ -66,8 +71,9 @@ class Enumeration
   public static function getName( $value )
   {
     $key = array_search( $value, static::toArray(), true );  // Search using strict comparison
+    if ( $key === false ) static::triggerUndefinedConstantError( $value );
 
-    return  $key === false ? null : $key;
+    return $key;
   }
 
   /**
@@ -88,14 +94,17 @@ class Enumeration
    * echo Animal::getValue( 'Dog' ); // Prints an integer, 1
    * </code>
    *
-   * @param     string      $member     The member's expected name
+   * @param     string|Enumeration      $member     The member's expected name
    *
-   * @return    mixed       The value of the member, null
-   *                        if no such member exists
+   * @return    bool                                The value of the member
    */
   public static function getValue( $member )
   {
-    return static::isDefined( $member ) ? static::toArray()[$member] : null;
+    // Typecast to string (we could be getting either a string or an instance of Enumeration in $member)
+    $member = (string)$member;
+    ( ! static::isDefined( $member ) ) && static::triggerUndefinedConstantError( $member );
+
+    return static::toArray()[$member];
   }
 
   /**
@@ -115,11 +124,11 @@ class Enumeration
    *
    * @param     string      $member     The member's expected name
    *
-   * @return    bool        <b>true</b> if such member is defined, <b>false</b> otherwise
+   * @return    bool                    <b>true</b> if such member is defined, <b>false</b> otherwise
    */
   public static function isDefined( $member )
   {
-    return array_key_exists( $member, static::toArray() );
+    return array_key_exists( (string)$member, static::toArray() );
   }
 
   /**
@@ -199,5 +208,66 @@ class Enumeration
     $type = get_called_class();
 
     return end( explode( "\\", $type ) );
+  }
+
+  /**
+   * Maps static method calls to defined enumeration members
+   *
+   * @internal
+   *
+   * @return    Enumeration     Instance of the Enumeration subclass
+   */
+  public static function __callStatic( $method, $args )
+  {
+    return static::getMemberInstance( get_called_class(), $method );
+  }
+
+  /**
+   * Get the value of the enumerated member represented by this instance
+   *
+   * @return    mixed         Value of the enumerated member
+   */
+  final public function value()
+  {
+    return $this->value;
+  }
+
+  /**
+   * Allow enumeration members to be typecast to strings
+   *
+   * @return    string      The value of the enumeration member in a string representation
+   */
+  public function __toString()
+  {
+    return (string)$this->name;
+  }
+
+  /**
+   * Factory for enumeration members' instance representations
+   *
+   * @param     string        $enumeration    The class for which the instance should be obtained/generated
+   * @param     string        $member         The enumerated member's name to retrieve
+   *
+   * @return    Enumeration   An instance of the Enumeration subclass, representing the given member's value
+   */
+  final private static function getMemberInstance( $enumeration, $member )
+  {
+    if ( ! isset( self::$instances[$enumeration] ) || ! isset( self::$instances[$enumeration][$member] ) )
+    {
+      // Instance of this enumeration member does not exist yet - let's create one
+      self::$instances[$enumeration][$member] = new $enumeration( $member, static::getValue( $member ) );
+    }
+
+    return self::$instances[$enumeration][$member];
+  }
+
+  final private static function triggerUndefinedConstantError( $const )
+  {
+    $trace = debug_backtrace();
+      trigger_error(
+        'Undefined class constant ' . $const .
+        ' in ' . $trace[1]['file'] .
+        ' on line ' . $trace[1]['line'],
+        E_USER_ERROR );
   }
 }
