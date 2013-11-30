@@ -90,7 +90,7 @@ As you can see, suddenly there's much more you can possibly do with a class as s
 
 ### Via Composer:
 
-`composer require dreamscapes\enumerations:dev-master`
+`composer require dreamscapes\enumeration:dev-master`
 
 Composer's autoloading is supported so as long as you `require "vendor/autoload.php";` somewhere in your code you can simply start using it.
 
@@ -103,7 +103,7 @@ Composer's autoloading is supported so as long as you `require "vendor/autoload.
 Sure! Just install the development dependencies and generate the docs.
 
 ```
-composer require --dev alaneor\enumerations:dev-master
+composer require --dev dreamscapes\enumeration:dev-master
 php vendor/bin/phpdoc.php
 ```
 
