@@ -34,6 +34,9 @@ class Enumeration
 
   /**
    * Instances are not allowed to be created by users
+   *
+   * @param     string      $name       The enumerated member's name
+   * @param     mixed       $value      The enumerated member's value
    */
   final private function __construct( $name, $value )
   {
@@ -261,6 +264,11 @@ class Enumeration
     return self::$instances[$enumeration][$member];
   }
 
+  /**
+   * Trigger an error that php triggers when attempting to access undefined class constant
+   *
+   * @param     string        $const        The name of the constant being accessed
+   */
   final private static function triggerUndefinedConstantError( $const )
   {
     $trace = debug_backtrace();
