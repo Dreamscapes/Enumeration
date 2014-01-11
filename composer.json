@@ -2,7 +2,7 @@
   "name": "dreamscapes/enumeration",
   "description": "A simple Typedef Enum implementation for php",
   "homepage": "https://github.com/Dreamscapes/Enumeration",
-  "keywords": ["enumeration", "typedef", "enum", "constant", "static list license"],
+  "keywords": ["enumeration", "typedef", "enum", "constant", "static list"],
   "license": "BSD-3-Clause",
   "authors": [
     {
@@ -17,7 +17,7 @@
   },
   "require-dev": {
     "codeception/codeception": "~1.7",
-    "phpdocumentor/phpdocumentor": "~2.1"
+    "phpdocumentor/phpdocumentor": "~2.2"
   },
   "autoload": {
     "psr-0": { "Dreamscapes\\": "src" }
