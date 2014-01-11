@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project title="Enumerations for php" version="2.1.0&#10;">
+<project title="Enumerations for php" version="2.2.0&#10;">
   <partials/>
   <file path="Enumeration.php" generated-path="Enumeration.html" hash="d86de4101334739e534ea7d0073159a1" package="Default">
     <docblock line="0">
@@ -43,19 +43,19 @@ should be defined as class constants.</long-description>
         <docblock line="41">
           <description>Instances are not allowed to be created by users</description>
           <long-description></long-description>
-          <tag name="param" line="41" description="&lt;p&gt;The enumerated member's name&lt;/p&gt;&#10;" type="string" variable="$name">
+          <tag name="param" line="41" description="&lt;p&gt;The enumerated member's name&lt;/p&gt;" type="string" variable="$name">
             <type>string</type>
           </tag>
-          <tag name="param" line="41" description="&lt;p&gt;The enumerated member's value&lt;/p&gt;&#10;" type="mixed" variable="$value">
+          <tag name="param" line="41" description="&lt;p&gt;The enumerated member's value&lt;/p&gt;" type="mixed" variable="$value">
             <type>mixed</type>
           </tag>
         </docblock>
-        <argument line="0">
+        <argument line="0" by_reference="false">
           <name>$name</name>
           <default></default>
           <type>string</type>
         </argument>
-        <argument line="0">
+        <argument line="0" by_reference="false">
           <name>$value</name>
           <default></default>
           <type>mixed</type>
@@ -82,14 +82,14 @@ class Animal extends Dreamscapes\Enumeration
 echo Animal::getName( 0 ); // Prints 'Horse'
 echo Animal::getName( '0' ); // Returns null, method is type-sensitive
 &lt;/code&gt;</long-description>
-          <tag name="param" line="74" description="&lt;p&gt;The member's expected value. &lt;b&gt;The&#10;                                  value must be of the same type as defined&#10;                                  in the Enumeration.&lt;/b&gt;&lt;/p&gt;&#10;" type="string" variable="$value">
+          <tag name="param" line="74" description="&lt;p&gt;The member's expected value. &lt;b&gt;The&lt;/p&gt;&#10;&lt;pre&gt;&lt;code&gt;                              value must be of the same type as defined&#10;                              in the Enumeration.&lt;/b&gt;&lt;/code&gt;&lt;/pre&gt;" type="string" variable="$value">
             <type>string</type>
           </tag>
           <tag name="return" line="74" description="The name of the member that holds this value, null&#10;                       if no such member exists" type="string">
             <type>string</type>
           </tag>
         </docblock>
-        <argument line="0">
+        <argument line="0" by_reference="false">
           <name>$value</name>
           <default></default>
           <type>string</type>
@@ -114,7 +114,7 @@ class Animal extends Dreamscapes\Enumeration
 
 echo Animal::getValue( 'Dog' ); // Prints an integer, 1
 &lt;/code&gt;</long-description>
-          <tag name="param" line="104" description="&lt;p&gt;The member's expected name&lt;/p&gt;&#10;" type="string|\Dreamscapes\Enumeration" variable="$member">
+          <tag name="param" line="104" description="&lt;p&gt;The member's expected name&lt;/p&gt;" type="string|\Dreamscapes\Enumeration" variable="$member">
             <type>string</type>
             <type link="Enumeration.html">\Dreamscapes\Enumeration</type>
           </tag>
@@ -122,7 +122,7 @@ echo Animal::getValue( 'Dog' ); // Prints an integer, 1
             <type>bool</type>
           </tag>
         </docblock>
-        <argument line="0">
+        <argument line="0" by_reference="false">
           <name>$member</name>
           <default></default>
           <type>string|\Dreamscapes\Enumeration</type>
@@ -144,14 +144,14 @@ class Animal extends Dreamscapes\Enumeration
 echo Animal::isDefined( 'Dog' ); // Prints an integer, 1 (bool true)
 echo Animal::isDefined( 'Cat' ); // Prints nothing (bool false)
 &lt;/code&gt;</long-description>
-          <tag name="param" line="132" description="&lt;p&gt;The member's expected name&lt;/p&gt;&#10;" type="string" variable="$member">
+          <tag name="param" line="132" description="&lt;p&gt;The member's expected name&lt;/p&gt;" type="string" variable="$member">
             <type>string</type>
           </tag>
           <tag name="return" line="132" description="&lt;b&gt;true&lt;/b&gt; if such member is defined, &lt;b&gt;false&lt;/b&gt; otherwise" type="bool">
             <type>bool</type>
           </tag>
         </docblock>
-        <argument line="0">
+        <argument line="0" by_reference="false">
           <name>$member</name>
           <default></default>
           <type>string</type>
@@ -257,22 +257,22 @@ echo Dreamscapes\Enumeration::getType(); // Enumeration
         <docblock line="256">
           <description>Factory for enumeration members' instance representations</description>
           <long-description></long-description>
-          <tag name="param" line="256" description="&lt;p&gt;The class for which the instance should be obtained/generated&lt;/p&gt;&#10;" type="string" variable="$enumeration">
+          <tag name="param" line="256" description="&lt;p&gt;The class for which the instance should be obtained/generated&lt;/p&gt;" type="string" variable="$enumeration">
             <type>string</type>
           </tag>
-          <tag name="param" line="256" description="&lt;p&gt;The enumerated member's name to retrieve&lt;/p&gt;&#10;" type="string" variable="$member">
+          <tag name="param" line="256" description="&lt;p&gt;The enumerated member's name to retrieve&lt;/p&gt;" type="string" variable="$member">
             <type>string</type>
           </tag>
           <tag name="return" line="256" description="An instance of the Enumeration subclass, representing the given member's value" type="\Dreamscapes\Enumeration">
             <type link="Enumeration.html">\Dreamscapes\Enumeration</type>
           </tag>
         </docblock>
-        <argument line="0">
+        <argument line="0" by_reference="false">
           <name>$enumeration</name>
           <default></default>
           <type>string</type>
         </argument>
-        <argument line="0">
+        <argument line="0" by_reference="false">
           <name>$member</name>
           <default></default>
           <type>string</type>
@@ -288,7 +288,7 @@ echo Dreamscapes\Enumeration::getType(); // Enumeration
             <type>string</type>
           </tag>
         </docblock>
-        <argument line="0">
+        <argument line="0" by_reference="false">
           <name>$const</name>
           <default></default>
           <type>string</type>
