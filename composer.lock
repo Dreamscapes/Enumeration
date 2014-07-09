@@ -1,12 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "a82d668ae7bee93a5a874c9a98e5b7f1",
-    "packages": [
-
-    ],
+    "hash": "a1df1145281e69db0db86925fb0329a8",
+    "packages": [],
     "packages-dev": [
         {
             "name": "behat/mink",
@@ -3921,17 +3920,11 @@
             "time": "2013-12-19 11:40:00"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": [],
     "platform": {
         "php": ">=5.4.0"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }
