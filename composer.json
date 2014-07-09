@@ -17,6 +17,7 @@
   },
   "require-dev": {
     "codeception/codeception": "~1.7",
+    "squizlabs/php_codesniffer": "~1",
     "phpdocumentor/phpdocumentor": "~2.2"
   },
   "autoload": {

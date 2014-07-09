@@ -11,9 +11,9 @@ This small library aims at providing additional features to your "Enumerations" 
 Let's say our program will work with animals - various different animals, and we would like each type of animal to have a distinct value ( which I completely made up in this example ). Here's what many programmers currently do:
 
 ```php
-define( 'MYAPP_ANIMAL_HORSE', 0 );
-define( 'MYAPP_ANIMAL_DOG', 1 );
-define( 'MYAPP_ANIMAL_CAT', 2 );
+define('MYAPP_ANIMAL_HORSE', 0);
+define('MYAPP_ANIMAL_DOG', 1);
+define('MYAPP_ANIMAL_CAT', 2);
 // ...
 ```
 
@@ -62,26 +62,26 @@ class Animal extends \Dreamscapes\Enumeration
 
 $animal = new Animal; // Raises fatal error (private constructor)
 
-Animal::isDefined( 'Horse' ); // Returns (bool)true
-Animal::isDefined( 'Cow' ); // Returns (bool)false
+Animal::isDefined('Horse'); // Returns (bool)true
+Animal::isDefined('Cow'); // Returns (bool)false
 
 // "Reverse resolution"
 $value = Animal::Dog;
-echo Animal::getName( $value ); // prints (string)"Dog"
+echo Animal::getName($value); // prints (string)"Dog"
 
 // Type-hinting
-function doSomething( Animal $animal )
+function doSomething(Animal $animal)
 {
   // $animal is now an instance of the Animal class
   // that can be easily represented as string
   echo $animal;
 }
-doSomething( Animal::Horse() ); // prints (string)"Horse"
+doSomething(Animal::Horse()); // prints (string)"Horse"
 
 // To get the actual value
 $value = $animal->value();
 // Or, use the Enumeration::getValue() class method
-$value = Animal::getValue( $animal );
+$value = Animal::getValue($animal);
 ```
 
 As you can see, suddenly there's much more you can possibly do with a class as simple as enumeration can be. Learn more in the [API Docs](http://dreamscapes.github.io/Enumeration/docs) which also include code examples and full method description.
