@@ -8,8 +8,8 @@ Icon
 # Project-specific
 docs
 vendor
-tests/_log/*
-!tests/_log/.gitkeep
+tests/_output/*
+!tests/_output/.gitkeep
 
 
 # Allows to have local phpDoc settings independent of what's in the repo

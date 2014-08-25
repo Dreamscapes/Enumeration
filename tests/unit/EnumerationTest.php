@@ -24,7 +24,7 @@ class AnotherEnum extends Enumeration
 
 class EnumerationTest extends \Codeception\TestCase\Test
 {
-    protected $codeGuy;
+    protected $tester;
 
 
     public function testEnumerationsCannotBeInstantiated()
