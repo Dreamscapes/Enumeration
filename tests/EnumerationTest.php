@@ -31,7 +31,6 @@ class EnumerationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @TODO: Why is this not ErrorException? The implementation uses trigger_error()...
      * @expectedException \PHPUnit_Framework_Error
      */
     public function testEachEnumerationMustBeIsolated()
@@ -43,7 +42,6 @@ class EnumerationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @TODO: Why is this not ErrorException? The implementation uses trigger_error()...
      * @expectedException \PHPUnit_Framework_Error
      */
     public function testAccessingUndefinedEnumerationMemberShouldTriggerError()
@@ -57,7 +55,6 @@ class EnumerationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @TODO: Why is this not ErrorException? The implementation uses trigger_error()...
      * @expectedException \PHPUnit_Framework_Error
      */
     public function testGetNameTriggersErrorOnUndefinedConstant()
