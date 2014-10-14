@@ -1,7 +1,7 @@
 # Enumerations for PHP
 
 [![Build Status](https://api.travis-ci.org/Dreamscapes/Enumeration.png)](https://travis-ci.org/Dreamscapes/Enumeration)
-[![Coverage Status](https://img.shields.io/coveralls/Dreamscapes/Enumeration.svg)](https://coveralls.io/r/Dreamscapes/Enumeration?branch=develop)
+[![Coverage Status](https://img.shields.io/coveralls/Dreamscapes/Enumeration.svg)](https://coveralls.io/r/Dreamscapes/Enumeration)
 [![Dependency Status](https://gemnasium.com/Dreamscapes/Enumeration.png)](https://gemnasium.com/Dreamscapes/Enumeration)
 
 Every php programmer at some point wants to put some structure to all those constants defined in their code. Usually one would put those constants under a dedicated class, but that's it; no additional features, no real benefit, no nothing.
