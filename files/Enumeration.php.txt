@@ -34,7 +34,7 @@ class Enumeration
 
 
     /**
-     * Instances are not allowed to be created by users
+     * Instances are not allowed to be created outside of this class
      *
      * @param     string      $name       The enumerated member's name
      * @param     mixed       $value      The enumerated member's value
@@ -65,11 +65,8 @@ class Enumeration
      * echo Animal::getName('0'); // Returns null, method is type-sensitive
      * ```
      *
-     * @param     string    $value      The member's expected value. <b>The
-                                        value must be of the same type as defined
-                                        in the Enumeration.</b>
-     * @return    string    The name of the member that holds this value, null
-                            if no such member exists
+     * @param     string    $value      The member's expected value (type-sensitive)
+     * @return    string    The name of the member that holds this value or null if not defined
      */
     public static function getName($value)
     {
@@ -80,6 +77,17 @@ class Enumeration
         }
 
         return $key;
+    }
+
+    /**
+     * Semantic alias for Enumeration::getName()
+     *
+     * @param     string    $value      The member's expected value (type-sensitive)
+     * @return    string    The name of the member that holds this value or null if not defined
+     */
+    public static function withValue($value)
+    {
+        return static::getName($value);
     }
 
     /**
@@ -101,7 +109,7 @@ class Enumeration
      * ```
      *
      * @param     string|Enumeration      $member     The member's expected name
-     * @return    bool                                The value of the member
+     * @return    mixed                               The value of the member
      */
     public static function getValue($member)
     {
@@ -113,6 +121,17 @@ class Enumeration
         }
 
         return static::toArray()[$member];
+    }
+
+    /**
+     * Semantic alias for Enumeration::getValue()
+     *
+     * @param     string|Enumeration      $member     The member's expected name
+     * @return    mixed                               The value of the member
+     */
+    public static function named($member)
+    {
+        return static::getValue($member);
     }
 
     /**
@@ -136,6 +155,39 @@ class Enumeration
     public static function isDefined($member)
     {
         return array_key_exists((string)$member, static::toArray());
+    }
+
+    /**
+     * Semantic alias for Enumeration::isDefined()
+     *
+     * @param     string      $member     The member's expected name
+     * @return    bool                    **true** if such member is defined, **false** otherwise
+     */
+    public static function contains($member)
+    {
+        return static::isDefined($member);
+    }
+
+    /**
+     * Semantic alias for Enumeration::isDefined()
+     *
+     * @param     string      $member     The member's expected name
+     * @return    bool                    **true** if such member is defined, **false** otherwise
+     */
+    public static function has($member)
+    {
+        return static::isDefined($member);
+    }
+
+    /**
+     * Semantic alias for Enumeration::isDefined()
+     *
+     * @param     string      $member     The member's expected name
+     * @return    bool                    **true** if such member is defined, **false** otherwise
+     */
+    public static function defines($member)
+    {
+        return static::isDefined($member);
     }
 
     /**

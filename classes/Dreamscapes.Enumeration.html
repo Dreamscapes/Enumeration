@@ -144,19 +144,19 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1584768079"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-331076338"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1584768079" class="accordion-body collapse in">
+            <div id="namespace-331076338" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2076750599"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1745092278"></a>
                                 <a href="../namespaces/Dreamscapes.html" style="margin-left: 30px; padding-left: 0">Dreamscapes</a>
             </div>
-            <div id="namespace-2076750599" class="accordion-body collapse ">
+            <div id="namespace-1745092278" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -209,8 +209,13 @@ should be defined as class constants.</p>
                         <section class="row-fluid public">
                             <section class="span4">
                                                                     <a href="../classes/Dreamscapes.Enumeration.html#method_getName" class="">getName()</a><br />
+                                                                    <a href="../classes/Dreamscapes.Enumeration.html#method_withValue" class="">withValue()</a><br />
                                                                     <a href="../classes/Dreamscapes.Enumeration.html#method_getValue" class="">getValue()</a><br />
+                                                                    <a href="../classes/Dreamscapes.Enumeration.html#method_named" class="">named()</a><br />
                                                                     <a href="../classes/Dreamscapes.Enumeration.html#method_isDefined" class="">isDefined()</a><br />
+                                                                    <a href="../classes/Dreamscapes.Enumeration.html#method_contains" class="">contains()</a><br />
+                                                                    <a href="../classes/Dreamscapes.Enumeration.html#method_has" class="">has()</a><br />
+                                                                    <a href="../classes/Dreamscapes.Enumeration.html#method_defines" class="">defines()</a><br />
                                                                     <a href="../classes/Dreamscapes.Enumeration.html#method_allMembers" class="">allMembers()</a><br />
                                                                     <a href="../classes/Dreamscapes.Enumeration.html#method_toArray" class="">toArray()</a><br />
                                                                     <a href="../classes/Dreamscapes.Enumeration.html#method_getType" class="">getType()</a><br />
@@ -308,17 +313,52 @@ echo Animal::getName('0'); // Returns null, method is type-sensitive</code></pre
                                                     <tr>
                                 <td>string</td>
                                 <td>$value </td>
-                                <td><p>The member's expected value. <b>The
-value must be of the same type as defined
-in the Enumeration.</b></p></td>
+                                <td><p>The member's expected value (type-sensitive)</p></td>
                             </tr>
                                             </table>
                 
                 
                                     <h4>Returns</h4>
                     string
-                                            &mdash; <p>The name of the member that holds this value, null
-if no such member exists</p>
+                                            &mdash; <p>The name of the member that holds this value or null if not defined</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_withValue" name="method_withValue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">withValue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">withValue(string  <span class="argument">$value</span>) : string</pre>
+                <p><em>Semantic alias for Enumeration::getName()</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$value </td>
+                                <td><p>The member's expected value (type-sensitive)</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>The name of the member that holds this value or null if not defined</p>
                                     				
                             </article>
         </div>
@@ -340,7 +380,7 @@ if no such member exists</p>
             <article class="method">
                 <h3 class="public ">getValue()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getValue(string|\Dreamscapes\Enumeration  <span class="argument">$member</span>) : boolean</pre>
+                <pre class="signature" style="margin-right: 54px;">getValue(string|\Dreamscapes\Enumeration  <span class="argument">$member</span>) : mixed</pre>
                 <p><em>Get the value of a given member&#039;s name</em></p>
                 <h3>Use case</h3>
 <p>You have a string representation of the Enumeration member and you would
@@ -365,7 +405,45 @@ echo Animal::getValue('Dog'); // Prints an integer, 1</code></pre>
                 
                 
                                     <h4>Returns</h4>
-                    boolean
+                    mixed
+                                            &mdash; <p>The value of the member</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_named" name="method_named" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">named()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">named(string|\Dreamscapes\Enumeration  <span class="argument">$member</span>) : mixed</pre>
+                <p><em>Semantic alias for Enumeration::getValue()</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|<a href="../classes/Dreamscapes.Enumeration.html">\Dreamscapes\Enumeration</a></td>
+                                <td>$member </td>
+                                <td><p>The member's expected name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
                                             &mdash; <p>The value of the member</p>
                                     				
                             </article>
@@ -399,6 +477,120 @@ echo Animal::getValue('Dog'); // Prints an integer, 1</code></pre>
 
 echo Animal::isDefined('Dog'); // Prints an integer, 1 (bool true)
 echo Animal::isDefined('Cat'); // Prints nothing (bool false)</code></pre>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$member </td>
+                                <td><p>The member's expected name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p><strong>true</strong> if such member is defined, <strong>false</strong> otherwise</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_contains" name="method_contains" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">contains()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">contains(string  <span class="argument">$member</span>) : boolean</pre>
+                <p><em>Semantic alias for Enumeration::isDefined()</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$member </td>
+                                <td><p>The member's expected name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p><strong>true</strong> if such member is defined, <strong>false</strong> otherwise</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_has" name="method_has" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">has()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">has(string  <span class="argument">$member</span>) : boolean</pre>
+                <p><em>Semantic alias for Enumeration::isDefined()</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$member </td>
+                                <td><p>The member's expected name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p><strong>true</strong> if such member is defined, <strong>false</strong> otherwise</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_defines" name="method_defines" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">defines()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">defines(string  <span class="argument">$member</span>) : boolean</pre>
+                <p><em>Semantic alias for Enumeration::isDefined()</em></p>
+                
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -658,7 +850,7 @@ echo \Dreamscapes\Enumeration::getType(); // Enumeration</code></pre>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on October 14th, 2014 at 14:47.
+                    on October 14th, 2014 at 21:29.
                 </section>
             </section>
         </section>
