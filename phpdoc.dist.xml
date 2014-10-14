@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpdoc>
   <parser>
-    <target>docs</target>
+    <target>tmp</target>
+    <visibility>public</visibility>
   </parser>
   <transformer>
     <target>docs</target>
   </transformer>
   <files>
-    <directory>src</directory>
+    <directory>Dreamscapes</directory>
   </files>
   <title>Enumerations for php</title>
   <transformations>
-    <template name="responsive"></template>
+    <template name="clean"></template>
   </transformations>
 </phpdoc>

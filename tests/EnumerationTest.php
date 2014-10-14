@@ -1,8 +1,6 @@
 <?php
 namespace Dreamscapes;
 
-use Codeception\Util\Stub;
-
 // @codingStandardsIgnoreStart
 
 // Prepare a test Enumeration
@@ -22,11 +20,8 @@ class AnotherEnum extends Enumeration
 // @codingStandardsIgnoreEnd
 
 
-class EnumerationTest extends \Codeception\TestCase\Test
+class EnumerationTest extends \PHPUnit_Framework_TestCase
 {
-    protected $codeGuy;
-
-
     public function testEnumerationsCannotBeInstantiated()
     {
         $refl  = new \ReflectionClass('Dreamscapes\TestEnum');
@@ -40,19 +35,30 @@ class EnumerationTest extends \Codeception\TestCase\Test
         $this->assertSame('some value', AnotherEnum::getValue('DifferentMember'));
         $this->assertSame(1, TestEnum::getValue('OtherMember'));
 
-        $this->setExpectedException('ErrorException');
+        $this->setExpectedException('PHPUnit_Framework_Error');
         TestEnum::getValue('DifferentMember');
     }
 
     public function testAccessingUndefinedEnumerationMemberShouldTriggerError()
     {
-        $this->setExpectedException('ErrorException');
+        $this->setExpectedException('PHPUnit_Framework_Error');
         TestEnum::NonExistent();
     }
 
     public function testEnumerationCanTranslateValueToMemberName()
     {
         $this->assertEquals('TestMember', TestEnum::getName(0));
+    }
+
+    public function testWithValueMethod()
+    {
+        $this->assertEquals('TestMember', TestEnum::withValue(0));
+    }
+
+    public function testGetNameTriggersErrorOnUndefinedConstant()
+    {
+        $this->setExpectedException('PHPUnit_Framework_Error');
+        TestEnum::getName('dummyValue');
     }
 
     public function testGetNameMethodIsTypeSensitive()
@@ -65,6 +71,12 @@ class EnumerationTest extends \Codeception\TestCase\Test
     {
         $this->assertSame(1, TestEnum::getValue('OtherMember'));
         $this->assertSame(false, TestEnum::getValue('FalseMember'));
+    }
+
+    public function testNamedMethod()
+    {
+        $this->assertSame(1, TestEnum::named('OtherMember'));
+        $this->assertSame(false, TestEnum::named('FalseMember'));
     }
 
     public function testMemberExistenceMethod()
@@ -128,8 +140,30 @@ class EnumerationTest extends \Codeception\TestCase\Test
     public function testIsDefinedMethodAcceptsInstanceOfEnumeration()
     {
         $instance = TestEnum::TestMember();
-
         $this->assertSame(true, TestEnum::isDefined($instance));
+
+        // This should not pass because we are asking if an enum of one type is defined in another
+        // enum
+        $instance = AnotherEnum::DifferentMember();
+        $this->assertSame(false, TestEnum::isDefined($instance));
+    }
+
+    public function testContainsMethod()
+    {
+        $this->assertTrue(TestEnum::contains('FalseMember'));
+        $this->assertFalse(TestEnum::contains('ImaginaryMember'));
+    }
+
+    public function testHasMethod()
+    {
+        $this->assertTrue(TestEnum::has('FalseMember'));
+        $this->assertFalse(TestEnum::has('ImaginaryMember'));
+    }
+
+    public function testDefinesMethod()
+    {
+        $this->assertTrue(TestEnum::defines('FalseMember'));
+        $this->assertFalse(TestEnum::defines('ImaginaryMember'));
     }
 
     public function testInstancesHaveValueMethod()
