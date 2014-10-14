@@ -8,6 +8,8 @@
 # @link         https://github.com/Dreamscapes/Enumeration
 # @license      http://choosealicense.com/licenses/BSD-3-Clause  BSD-3-Clause License
 
+SHELL := /bin/bash
+
 # Helper vars
 BIN = vendor/bin/
 

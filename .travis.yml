@@ -13,4 +13,4 @@ after_success:
 - '[[ -n "${TRAVIS_TAG}" ]] && make gh-pages'
 env:
   global:
-    secure: BC2nXaBIFznNBCA6klgiuYBzUX4+3odZhwfWZDjOdAdYR8pWmd8btSFd3JHsRIZ0BopRao0TXVGRARQkdP/FE0W0z2zDuAieH7MN5/jRbUOzZ042+80i617zsxvtQh0/fEjFLl8UL+IKsHkMIPoZ/c1DlQPWmQ87Dsw1tarXDGQ=
+    secure: PLLi+L7TaO+woxBSyvduOgRVcqmWJHnEn9KdgCHJOh0ZC5Gsg7xe8KZIo6apO1q3x8+TBDJeWVqk/u2pJDLVLYiEWnQtJRPtGhyR2td7mL6i+Mi+EtKfN/QYtyJXC9Ti/1NUWmPvbtBRdp3SXFJJPGX+3yB/WQb1xG0T/O5ZvSE=
