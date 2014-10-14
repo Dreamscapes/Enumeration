@@ -56,6 +56,15 @@ class EnumerationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('TestMember', TestEnum::getName(0));
     }
 
+    /**
+     * @TODO: Why is this not ErrorException? The implementation uses trigger_error()...
+     * @expectedException \PHPUnit_Framework_Error
+     */
+    public function testGetNameTriggersErrorOnUndefinedConstant()
+    {
+        TestEnum::getName('dummyValue');
+    }
+
     public function testGetNameMethodIsTypeSensitive()
     {
         $this->assertSame('TestMember', TestEnum::getName(0));
