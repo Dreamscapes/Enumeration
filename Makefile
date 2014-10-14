@@ -44,7 +44,7 @@ test: clean-coverage
 
 # Lint all php files using PHP_CodeSniffer
 lint:
-	@$(BIN)phpcs --standard=PSR2 --ignore=vendor/*,docs/* -p Dreamscapes
+	@$(BIN)phpcs --standard=PSR2 --ignore=vendor/*,docs/* -p Dreamscapes tests
 
 # Generate API documentation
 docs: clean-docs
