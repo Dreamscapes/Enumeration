@@ -53,7 +53,7 @@ class Enumeration
      * to know the name of the enumeration member that holds this value.
      *
      * <h3>Example</h3>
-     * <code>
+     * ```
      * class Animal extends Dreamscapes\Enumeration
      * {
      *   const Horse = 0;
@@ -62,14 +62,13 @@ class Enumeration
      *
      * echo Animal::getName(0); // Prints 'Horse'
      * echo Animal::getName('0'); // Returns null, method is type-sensitive
-     * </code>
+     * ```
      *
-     * @param     string      $value     The member's expected value. <b>The
-     *                                   value must be of the same type as defined
-     *                                   in the Enumeration.</b>
-     *
-     * @return    string      The name of the member that holds this value, null
-     *                        if no such member exists
+     * @param     string    $value      The member's expected value. <b>The
+                                        value must be of the same type as defined
+                                        in the Enumeration.</b>
+     * @return    string    The name of the member that holds this value, null
+                            if no such member exists
      */
     public static function getName($value)
     {
@@ -90,7 +89,7 @@ class Enumeration
      * like to know the value that member holds.
      *
      * <h3>Example</h3>
-     * <code>
+     * ```
      * class Animal extends Dreamscapes\Enumeration
      * {
      *   const Horse = 0;
@@ -98,10 +97,9 @@ class Enumeration
      * }
      *
      * echo Animal::getValue('Dog'); // Prints an integer, 1
-     * </code>
+     * ```
      *
      * @param     string|Enumeration      $member     The member's expected name
-     *
      * @return    bool                                The value of the member
      */
     public static function getValue($member)
@@ -119,7 +117,7 @@ class Enumeration
      * Does a member with this name exist in the enumeration?
      *
      * <h3>Example</h3>
-     * <code>
+     * ```
      * class Animal extends Dreamscapes\Enumeration
      * {
      *   const Horse = 0;
@@ -128,10 +126,9 @@ class Enumeration
      *
      * echo Animal::isDefined('Dog'); // Prints an integer, 1 (bool true)
      * echo Animal::isDefined('Cat'); // Prints nothing (bool false)
-     * </code>
+     * ```
      *
      * @param     string      $member     The member's expected name
-     *
      * @return    bool                    <b>true</b> if such member is defined, <b>false</b> otherwise
      */
     public static function isDefined($member)
@@ -146,7 +143,7 @@ class Enumeration
      * in which the constants are defined in the class.</p>
      *
      * <h3>Example</h3>
-     * <code>
+     * ```
      * class Animal extends Dreamscapes\Enumeration
      * {
      *   const Horse = 0;
@@ -159,7 +156,7 @@ class Enumeration
      * //   0 => 'Horse'
      * //   1 => 'Dog'
      * // )
-     * </code>
+     * ```
      *
      * @return    array     An ordered list of all Enumeration members
      */
@@ -172,7 +169,7 @@ class Enumeration
      * Convert the Enumeration into an array
      *
      * <h3>Example</h3>
-     * <code>
+     * ```
      * class Animal extends Dreamscapes\Enumeration
      * {
      *   const Horse = 0;
@@ -185,7 +182,7 @@ class Enumeration
      * //   'Horse' => 0
      * //   'Dog' => 1
      * // )
-     * </code>
+     * ```
      *
      * @return    array
      */
@@ -200,14 +197,14 @@ class Enumeration
      * Get the string representation of the Enumeration, without namespace
      *
      * <h3>Example</h3>
-     * <code>
+     * ```
      * namespace Fauna;
      *
      * class Animal extends \Dreamscapes\Enumeration {}
      *
      * echo Animal::getType(); // Animal
      * echo \Dreamscapes\Enumeration::getType(); // Enumeration
-     * </code>
+     * ```
      *
      * @return    string      The name of the Enumeration class, without namespace
      */
@@ -222,7 +219,6 @@ class Enumeration
      * Maps static method calls to defined enumeration members
      *
      * @internal
-     *
      * @return    Enumeration     Instance of the Enumeration subclass
      */
     public static function __callStatic($method, $args)
@@ -255,7 +251,6 @@ class Enumeration
      *
      * @param     string        $enumeration    The class for which the instance should be obtained/generated
      * @param     string        $member         The enumerated member's name to retrieve
-     *
      * @return    Enumeration   An instance of the Enumeration subclass, representing the given member's value
      */
     final private static function getMemberInstance($enumeration, $member)
