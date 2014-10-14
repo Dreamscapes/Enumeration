@@ -88,7 +88,22 @@ $value = $animal->value();
 $value = Animal::getValue($animal);
 ```
 
-As you can see, suddenly there's much more you can possibly do with a class as simple as enumeration can be. Learn more in the [API Docs](http://dreamscapes.github.io/Enumeration/docs) which also include code examples and full method description.
+As you can see, suddenly there's much more you can possibly do with a class as simple as enumeration can be. Learn more in the [API Docs][api-docs] which also include code examples and full method descriptions.
+
+### Semantic methods
+
+Enumeration contains several semantically named methods you can use to write code that can be understood simply by looking at the code.
+
+Consider following example:
+```
+if (Animal::defines('Horse')) {
+  // Animal::Horse is defined!
+}
+
+echo Animal::withValue(0); // Horse
+```
+
+More methods are available - be sure to check out [API Docs][api-docs]!
 
 ## Installation
 
@@ -100,7 +115,7 @@ Composer's autoloading is supported so as long as you `require "vendor/autoload.
 
 ## Documentation
 
-[API documentation](http://dreamscapes.github.io/Enumeration/docs) is available online - it includes all public methods you can use and also several code samples and use cases.
+[API documentation][api-docs] is available online - it includes all public methods you can use and also several code samples and use cases.
 
 ### Offline documentation
 
@@ -116,3 +131,5 @@ Documentation is now available at *./docs/index.html*.
 ## License
 
 This software is licensed under the **BSD (3-Clause) License**. See the [LICENSE](LICENSE) file for more information.
+
+[api-docs]: http://dreamscapes.github.io/Enumeration
