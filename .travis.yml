@@ -9,6 +9,7 @@ script:
 - make lint
 - make test
 after_success:
+- make coveralls
 - '[[ -n "${TRAVIS_TAG}" ]] && make gh-pages'
 env:
   global:

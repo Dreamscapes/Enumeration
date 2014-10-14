@@ -50,6 +50,10 @@ lint:
 docs: clean-docs
 	@$(BIN)phpdoc
 
+# Send code coverage information to Coveralls.io
+coveralls: test
+	@$(BIN)coveralls -v
+
 # Update gh-pages branch with new docs
 gh-pages: clean-gh-pages docs
 	@# The commit message when updating gh-pages
