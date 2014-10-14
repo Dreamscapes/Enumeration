@@ -50,6 +50,11 @@ class EnumerationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('TestMember', TestEnum::getName(0));
     }
 
+    public function testWithValueMethod()
+    {
+        $this->assertEquals('TestMember', TestEnum::withValue(0));
+    }
+
     public function testGetNameTriggersErrorOnUndefinedConstant()
     {
         $this->setExpectedException('PHPUnit_Framework_Error');
@@ -66,6 +71,12 @@ class EnumerationTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertSame(1, TestEnum::getValue('OtherMember'));
         $this->assertSame(false, TestEnum::getValue('FalseMember'));
+    }
+
+    public function testNamedMethod()
+    {
+        $this->assertSame(1, TestEnum::named('OtherMember'));
+        $this->assertSame(false, TestEnum::named('FalseMember'));
     }
 
     public function testMemberExistenceMethod()
@@ -135,6 +146,24 @@ class EnumerationTest extends \PHPUnit_Framework_TestCase
         // enum
         $instance = AnotherEnum::DifferentMember();
         $this->assertSame(false, TestEnum::isDefined($instance));
+    }
+
+    public function testContainsMethod()
+    {
+        $this->assertTrue(TestEnum::contains('FalseMember'));
+        $this->assertFalse(TestEnum::contains('ImaginaryMember'));
+    }
+
+    public function testHasMethod()
+    {
+        $this->assertTrue(TestEnum::has('FalseMember'));
+        $this->assertFalse(TestEnum::has('ImaginaryMember'));
+    }
+
+    public function testDefinesMethod()
+    {
+        $this->assertTrue(TestEnum::defines('FalseMember'));
+        $this->assertFalse(TestEnum::defines('ImaginaryMember'));
     }
 
     public function testInstancesHaveValueMethod()
