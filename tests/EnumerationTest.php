@@ -30,22 +30,18 @@ class EnumerationTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($refl->getConstructor()->isFinal());
     }
 
-    /**
-     * @expectedException \PHPUnit_Framework_Error
-     */
     public function testEachEnumerationMustBeIsolated()
     {
         $this->assertSame('some value', AnotherEnum::getValue('DifferentMember'));
         $this->assertSame(1, TestEnum::getValue('OtherMember'));
 
+        $this->setExpectedException('PHPUnit_Framework_Error');
         TestEnum::getValue('DifferentMember');
     }
 
-    /**
-     * @expectedException \PHPUnit_Framework_Error
-     */
     public function testAccessingUndefinedEnumerationMemberShouldTriggerError()
     {
+        $this->setExpectedException('PHPUnit_Framework_Error');
         TestEnum::NonExistent();
     }
 
@@ -54,11 +50,9 @@ class EnumerationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('TestMember', TestEnum::getName(0));
     }
 
-    /**
-     * @expectedException \PHPUnit_Framework_Error
-     */
     public function testGetNameTriggersErrorOnUndefinedConstant()
     {
+        $this->setExpectedException('PHPUnit_Framework_Error');
         TestEnum::getName('dummyValue');
     }
 
