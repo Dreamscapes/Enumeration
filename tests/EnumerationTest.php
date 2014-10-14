@@ -138,8 +138,12 @@ class EnumerationTest extends \PHPUnit_Framework_TestCase
     public function testIsDefinedMethodAcceptsInstanceOfEnumeration()
     {
         $instance = TestEnum::TestMember();
-
         $this->assertSame(true, TestEnum::isDefined($instance));
+
+        // This should not pass because we are asking if an enum of one type is defined in another
+        // enum
+        $instance = AnotherEnum::DifferentMember();
+        $this->assertSame(false, TestEnum::isDefined($instance));
     }
 
     public function testInstancesHaveValueMethod()
