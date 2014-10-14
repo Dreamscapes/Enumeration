@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Enumerations
+ * Dreamscapes\Enumeration
  *
  * Licensed under the BSD (3-Clause) license
  * For full copyright and license information, please see the LICENSE file
  *
- * @copyright   2013 Robert Rossmann
+ * @copyright   2014 Robert Rossmann
  * @author      Robert Rossmann <rr.rossmann@me.com>
  * @link        https://github.com/Dreamscapes/Enumeration
  * @license     http://choosealicense.com/licenses/bsd-3-clause   BSD (3-Clause) License
@@ -25,11 +25,12 @@ namespace Dreamscapes;
  */
 class Enumeration
 {
+    // Instances of enumeration members are cached here
+    private static $instances = [];
 
-    private static $instances = [];   // Instances of enumeration members are cached here
 
-
-    private $value;                   // Each instance of an Enumeration holds the member's value here
+    // Each instance of an Enumeration holds the member's value here
+    private $value;
 
 
     /**
@@ -104,7 +105,8 @@ class Enumeration
      */
     public static function getValue($member)
     {
-        // Typecast to string (we could be getting either a string or an instance of Enumeration in $member)
+        // Typecast to string (we could be getting either a string or an instance of
+        // Enumeration in $member)
         $member = (string)$member;
         if (! static::isDefined($member)) {
             static::triggerUndefinedConstantError($member);
@@ -129,7 +131,7 @@ class Enumeration
      * ```
      *
      * @param     string      $member     The member's expected name
-     * @return    bool                    <b>true</b> if such member is defined, <b>false</b> otherwise
+     * @return    bool                    **true** if such member is defined, **false** otherwise
      */
     public static function isDefined($member)
     {
@@ -249,15 +251,18 @@ class Enumeration
     /**
      * Factory for enumeration members' instance representations
      *
-     * @param     string        $enumeration    The class for which the instance should be obtained/generated
+     * @param     string        $enumeration    The class for which the instance should be obtained
      * @param     string        $member         The enumerated member's name to retrieve
-     * @return    Enumeration   An instance of the Enumeration subclass, representing the given member's value
+     * @return    Enumeration   An instance of Enumeration, representing the given member's value
      */
     final private static function getMemberInstance($enumeration, $member)
     {
-        if (! isset(self::$instances[$enumeration]) || ! isset(self::$instances[$enumeration][$member])) {
+        if (! isset(self::$instances[$enumeration]) ||
+            ! isset(self::$instances[$enumeration][$member])
+        ) {
             // Instance of this enumeration member does not exist yet - let's create one
-            self::$instances[$enumeration][$member] = new $enumeration($member, static::getValue($member));
+            self::$instances[$enumeration][$member] =
+                new $enumeration($member, static::getValue($member));
         }
 
         return self::$instances[$enumeration][$member];
