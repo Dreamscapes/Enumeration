@@ -213,9 +213,9 @@ class Enumeration
      */
     public static function getType()
     {
-        $type = get_called_class();
+        $type = explode("\\", get_called_class());
 
-        return end(explode("\\", $type));
+        return end($type);
     }
 
     /**
