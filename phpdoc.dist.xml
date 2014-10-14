@@ -8,7 +8,7 @@
     <target>docs</target>
   </transformer>
   <files>
-    <directory>src</directory>
+    <directory>Dreamscapes</directory>
   </files>
   <title>Enumerations for php</title>
   <transformations>

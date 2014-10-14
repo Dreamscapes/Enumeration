@@ -21,6 +21,6 @@
     "phpunit/phpunit": "~4"
   },
   "autoload": {
-    "psr-0": { "Dreamscapes\\": "src" }
+    "psr-0": { "Dreamscapes\\": "." }
   }
 }
