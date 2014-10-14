@@ -1,8 +1,6 @@
 <?php
 namespace Dreamscapes;
 
-use Codeception\Util\Stub;
-
 // @codingStandardsIgnoreStart
 
 // Prepare a test Enumeration
@@ -22,11 +20,8 @@ class AnotherEnum extends Enumeration
 // @codingStandardsIgnoreEnd
 
 
-class EnumerationTest extends \Codeception\TestCase\Test
+class EnumerationTest extends \PHPUnit_Framework_TestCase
 {
-    protected $tester;
-
-
     public function testEnumerationsCannotBeInstantiated()
     {
         $refl  = new \ReflectionClass('Dreamscapes\TestEnum');
@@ -35,18 +30,24 @@ class EnumerationTest extends \Codeception\TestCase\Test
         $this->assertTrue($refl->getConstructor()->isFinal());
     }
 
+    /**
+     * @TODO: Why is this not ErrorException? The implementation uses trigger_error()...
+     * @expectedException \PHPUnit_Framework_Error
+     */
     public function testEachEnumerationMustBeIsolated()
     {
         $this->assertSame('some value', AnotherEnum::getValue('DifferentMember'));
         $this->assertSame(1, TestEnum::getValue('OtherMember'));
 
-        $this->setExpectedException('ErrorException');
         TestEnum::getValue('DifferentMember');
     }
 
+    /**
+     * @TODO: Why is this not ErrorException? The implementation uses trigger_error()...
+     * @expectedException \PHPUnit_Framework_Error
+     */
     public function testAccessingUndefinedEnumerationMemberShouldTriggerError()
     {
-        $this->setExpectedException('ErrorException');
         TestEnum::NonExistent();
     }
 

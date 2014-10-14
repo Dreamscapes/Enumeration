@@ -7,10 +7,9 @@ Icon
 
 # Project-specific
 docs
+coverage
+tmp
 vendor
-tests/_output/*
-!tests/_output/.gitkeep
-
 
 # Allows to have local phpDoc settings independent of what's in the repo
 phpdoc.xml
